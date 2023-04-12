@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import * as React from "react";
 import InputLabel from "@mui/material/InputLabel";
 import InputAdornment from "@mui/material/InputAdornment";
 import FormControl from "@mui/material/FormControl";
@@ -6,9 +6,6 @@ import TextField from "@mui/material/TextField";
 import { FormControlLabel, Select, SelectChangeEvent } from "@mui/material";
 import MenuItem from "@mui/material/MenuItem";
 import Checkbox from "@mui/material/Checkbox";
-import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
-import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
-import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
 
@@ -18,7 +15,8 @@ const MUIForm = () => {
     setDealType(event.target.value as string);
   };
   const label = { inputProps: { "aria-label": "Checkbox demo" } };
-  const [expirationDate, setExpirationDate] = useState("");
+  const [expirationDate, setExpirationDate] = React.useState("");
+  const [checked, setChecked] = React.useState(false);
 
   return (
     <div>
@@ -48,7 +46,6 @@ const MUIForm = () => {
         />
       </FormControl>
       <br />
-
       <FormControl sx={{ m: 1, width: "50ch" }}>
         <InputLabel id="demo-simple-select-label">Deal Type</InputLabel>
         <Select
@@ -62,22 +59,31 @@ const MUIForm = () => {
           <MenuItem value="Public">Public</MenuItem>
         </Select>
       </FormControl>
-
       <FormControlLabel
         value="start"
         label="Expired"
         labelPlacement="start"
-        control={<Checkbox />}
+        sx={{ mr: "6ch", ml: "16.5ch", color: "#434343" }}
+        control={<Checkbox checked={checked}
+        onChange={() => {
+              if(checked){
+                setExpirationDate('')
+              }
+          setChecked(!checked)
+            }
+         }/>}
       />
       <TextField
-        type="date"
-        variant="outlined"
-        color="secondary"
-        label="Expiration Date"
-        onChange={(e) => setExpirationDate(e.target.value)}
-        value={expirationDate}
-        sx={{ m: 1, width: "25ch" }}
-      />
+          type="date"
+          variant="outlined"
+          color="primary"
+          label="Expiry Date"
+          InputLabelProps={{ shrink: true }}
+          disabled={!checked}
+          onChange={(e) => setExpirationDate(e.target.value)}
+          value={expirationDate}
+          sx={{ mb: 4 }}
+        />
 
       <br />
       <FormControl sx={{ m: 1, width: "50ch" }} variant="outlined">
@@ -91,12 +97,14 @@ const MUIForm = () => {
         value="start"
         label="Update Public Pool Stats"
         labelPlacement="start"
+        sx={{ mr: "13ch", color: "#434343" }}
         control={<Checkbox />}
       />
       <FormControlLabel
         value="start"
         label="Hidden"
         labelPlacement="start"
+        sx={{ mr: "13ch", color: "#434343" }}
         control={<Checkbox />}
       />
       <br />
