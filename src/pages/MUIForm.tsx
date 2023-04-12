@@ -64,26 +64,29 @@ const MUIForm = () => {
         label="Expired"
         labelPlacement="start"
         sx={{ mr: "6ch", ml: "16.5ch", color: "#434343" }}
-        control={<Checkbox checked={checked}
-        onChange={() => {
-              if(checked){
-                setExpirationDate('')
+        control={
+          <Checkbox
+            checked={checked}
+            onChange={() => {
+              if (checked) {
+                setExpirationDate("");
               }
-          setChecked(!checked)
-            }
-         }/>}
+              setChecked(!checked);
+            }}
+          />
+        }
       />
       <TextField
-          type="date"
-          variant="outlined"
-          color="primary"
-          label="Expiry Date"
-          InputLabelProps={{ shrink: true }}
-          disabled={!checked}
-          onChange={(e) => setExpirationDate(e.target.value)}
-          value={expirationDate}
-          sx={{ mb: 4 }}
-        />
+        type="date"
+        variant="outlined"
+        color="primary"
+        label="Expiry Date"
+        InputLabelProps={{ shrink: true }}
+        disabled={!checked}
+        onChange={(e) => setExpirationDate(e.target.value)}
+        value={expirationDate}
+        sx={{ mb: 4 }}
+      />
 
       <br />
       <FormControl sx={{ m: 1, width: "50ch" }} variant="outlined">
