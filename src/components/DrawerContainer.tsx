@@ -24,6 +24,7 @@ const items = [
   { text: "MUI", icon: "k-i-information", route: "/mui" },
   { text: "Kendo", icon: "k-i-information", route: "/kendoControls" },
   { text: "Form MUI", icon: "k-i-information", route: "/muiform" },
+  { text: "Calendar", icon: "k-i-information", route: "/calendar" },
 ];
 
 const DrawerContainer = (props: {
