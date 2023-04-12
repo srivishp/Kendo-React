@@ -1,3 +1,5 @@
+This is a sample React JS web application which explores the UI features offered by Kendo React and Material UI.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
