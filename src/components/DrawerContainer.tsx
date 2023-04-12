@@ -1,23 +1,35 @@
-import * as React from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
-import { withRouter } from './RoutingHelpers';
+import * as React from "react";
+import { useNavigate, useLocation } from "react-router-dom";
+import { withRouter } from "./RoutingHelpers";
 import {
   Drawer,
   DrawerContent,
   DrawerSelectEvent,
-} from '@progress/kendo-react-layout';
-import { Button } from '@progress/kendo-react-buttons';
+} from "@progress/kendo-react-layout";
+import { Button } from "@progress/kendo-react-buttons";
 
 const items = [
-  { text: 'Dashboard', icon: 'k-i-information', selected: true, route: '/dashboard' },
-  { text: 'DataGrid', icon: 'k-i-grid', selected: true, route: '/gridcontrolslayout' },
-  { text: 'MUI', icon: 'k-i-information', route: '/mui' },
-  { text: 'Kendo', icon: 'k-i-information', route: '/kendoControls' },
-  { text: 'Form MUI', icon: 'k-i-information', route: '/muiform' },
+  {
+    text: "Dashboard",
+    icon: "k-i-information",
+    selected: true,
+    route: "/dashboard",
+  },
+  {
+    text: "DataGrid",
+    icon: "k-i-grid",
+    selected: true,
+    route: "/gridcontrolslayout",
+  },
+  { text: "MUI", icon: "k-i-information", route: "/mui" },
+  { text: "Kendo", icon: "k-i-information", route: "/kendoControls" },
+  { text: "Form MUI", icon: "k-i-information", route: "/muiform" },
 ];
- 
 
-const DrawerContainer = (props: { router: { navigate: (arg0: any) => void; location: { pathname: any; }; }; children: any; }) => {
+const DrawerContainer = (props: {
+  router: { navigate: (arg0: any) => void; location: { pathname: any } };
+  children: any;
+}) => {
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -36,8 +48,8 @@ const DrawerContainer = (props: { router: { navigate: (arg0: any) => void; locat
     if (currentPath && currentPath.text) {
       return currentPath.text;
     } else {
-      location.pathname = '/home';
-      navigate('/home');
+      location.pathname = "/home";
+      navigate("/home");
     }
   };
 
@@ -45,29 +57,29 @@ const DrawerContainer = (props: { router: { navigate: (arg0: any) => void; locat
 
   return (
     <React.Fragment>
-    <div>
-    
-      <div className="custom-toolbar">
-        <Button icon="menu" fillMode="flat" onClick={handleClick} />
-        <span className="title">Kendo React & Material UI - POC</span>
+      <div>
+        <div className="custom-toolbar">
+          <Button icon="menu" fillMode="flat" onClick={handleClick} />
+          <span className="title">Kendo React & Material UI - POC</span>
+        </div>
+
+        <Drawer
+          expanded={expanded}
+          animation={{ duration: 100 }}
+          position={"start"}
+          mode={"push"}
+          width={200}
+          items={items.map((item) => ({
+            ...item,
+            selected: item.text === selected,
+          }))}
+          onSelect={onSelect}
+        >
+          <DrawerContent style={{ height: 1066 }}>
+            {props.children}
+          </DrawerContent>
+        </Drawer>
       </div>
-       
-      <Drawer
-        expanded={expanded}
-        animation={{duration: 100}}
-        position={'start'}
-        mode={'push'}
-        width={200}
-        items={items.map((item) => ({
-          ...item,
-          selected: item.text === selected,
-        }))}
-        onSelect={onSelect}
-      >
-        <DrawerContent style={{height: 1066}}>
-            {props.children}</DrawerContent>
-      </Drawer>
-    </div>
     </React.Fragment>
   );
 };
