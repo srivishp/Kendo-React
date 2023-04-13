@@ -34,7 +34,7 @@ const GridControlsLayout = () => {
         <TabStripTab title="Kendo Data Grid">
           <DataGrid />
         </TabStripTab>
-        <TabStripTab title="Kendo Reusable Data Grid">
+        <TabStripTab title="Kendo Data Grid Sorting">
           <ReusableDataGrid
             starwars={starwars}
             GridColumns={GridColumns}
