@@ -12,6 +12,7 @@ import DrawerContainer from "./components/DrawerContainer";
 import RouterOutlet from "./components/RouterOutlet";
 import MUIForm from "./pages/MUIForm";
 import Calendar from "./components/Calendar";
+import TransferList from "./components/TransferList";
 
 const App = () => {
   return (
@@ -30,6 +31,7 @@ const App = () => {
                 <Route path="kendoControls" element={<KendoControls />} />
                 <Route path="muiform" element={<MUIForm />} />
                 <Route path="calendar" element={<Calendar />} />
+                <Route path="transferlist" element={<TransferList />} />
               </Route>
             </Routes>
           </DrawerContainer>

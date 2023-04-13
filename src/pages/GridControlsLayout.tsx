@@ -6,7 +6,7 @@ import {
   TabStripTab,
 } from "@progress/kendo-react-layout";
 import DataGrid from "./DataGrid";
-import ReusableDataGrid from "../components/ReusableDataGrid";
+import DataGridSorting from "../components/DataGridSorting";
 import starwars from "../resources/starwars.json";
 import { GridSortChangeEvent } from "@progress/kendo-react-grid";
 import { orderBy, SortDescriptor } from "@progress/kendo-data-query";
@@ -35,7 +35,7 @@ const GridControlsLayout = () => {
           <DataGrid />
         </TabStripTab>
         <TabStripTab title="Kendo Data Grid Sorting">
-          <ReusableDataGrid
+          <DataGridSorting
             starwars={starwars}
             GridColumns={GridColumns}
             onChange={(e: any) => setColumns(GridColumns)}

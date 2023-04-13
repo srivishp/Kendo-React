@@ -9,7 +9,7 @@ import { orderBy, SortDescriptor } from "@progress/kendo-data-query";
 
 const initialSort: Array<SortDescriptor> = [{ field: "S. No", dir: "asc" }];
 
-const ReusableDataGrid = (props: any) => {
+const DataGridSorting = (props: any) => {
   const [columns, setColumns] = React.useState(props.GridColumns);
   const [starwars, setProducts] = React.useState(props.starwars);
   const [sort, setSort] = React.useState(initialSort);
@@ -28,4 +28,4 @@ const ReusableDataGrid = (props: any) => {
     </Grid>
   );
 };
-export default ReusableDataGrid;
+export default DataGridSorting;
