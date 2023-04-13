@@ -11,7 +11,7 @@ import KendoControls from "./pages/KendoControls";
 import DrawerContainer from "./components/DrawerContainer";
 import RouterOutlet from "./components/RouterOutlet";
 import MUIForm from "./pages/MUIForm";
-import Calendar from "./pages/Calendar";
+import Calendar from "./components/Calendar";
 
 const App = () => {
   return (
