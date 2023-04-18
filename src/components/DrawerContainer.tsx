@@ -26,6 +26,7 @@ const items = [
   { text: "Form MUI", icon: "k-i-information", route: "/muiform" },
   { text: "Calendar", icon: "k-i-information", route: "/calendar" },
   { text: "Transfer List", icon: "k-i-information", route: "/transferlist" },
+  { text: "Dialog Box", icon: "k-i-information", route: "/dialogbox" },
 ];
 
 const DrawerContainer = (props: {
