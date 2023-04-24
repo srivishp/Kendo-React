@@ -8,6 +8,7 @@ import MenuItem from "@mui/material/MenuItem";
 import Checkbox from "@mui/material/Checkbox";
 import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
+import Box from '@mui/material/Box';
 
 const MUIForm = () => {
   const [dealType, setDealType] = React.useState("");
@@ -20,94 +21,72 @@ const MUIForm = () => {
 
   return (
     <div>
+       <Box sx={{
+        width: 820,
+        height: 900, border: '1px dashed grey'
+      }}>
+      
       <FormControl sx={{ m: 1, width: "50ch" }} variant="outlined">
         <TextField
-          label="Transaction ID"
+          label="GUID"
           id="outlined-start-adornment"
           sx={{ m: 1, width: "50ch" }}
-        />
-      </FormControl>
-      <FormControl sx={{ m: 1, width: "50ch" }} variant="outlined">
-        <TextField
-          label="IR Swap Margin"
-          id="outlined-start-adornment"
-          sx={{ m: 1, width: "50ch" }}
-          InputProps={{
-            endAdornment: <InputAdornment position="end">bp</InputAdornment>,
-          }}
-        />
-      </FormControl>
-      <br />
-      <FormControl sx={{ m: 1, width: "75ch" }} variant="outlined">
-        <TextField
-          label="Long Name"
-          id="outlined-start-adornment"
-          sx={{ m: 1, width: "102ch" }}
-        />
-      </FormControl>
-      <br />
-      <FormControl sx={{ m: 1, width: "50ch" }}>
-        <InputLabel id="demo-simple-select-label">Deal Type</InputLabel>
-        <Select
-          labelId="demo-simple-select-label"
-          id="demo-simple-select"
-          label="Deal Type"
-          onChange={handleChange}
-          sx={{ m: 1, width: "25ch" }}
-        >
-          <MenuItem value="Private">Private</MenuItem>
-          <MenuItem value="Public">Public</MenuItem>
-        </Select>
-      </FormControl>
-      <FormControlLabel
-        value="start"
-        label="Expired"
-        labelPlacement="start"
-        sx={{ mr: "6ch", ml: "16.5ch", color: "#434343" }}
-        control={
-          <Checkbox
-            checked={checked}
-            onChange={() => {
-              if (checked) {
-                setExpirationDate("");
-              }
-              setChecked(!checked);
-            }}
-          />
-        }
-      />
-      <TextField
-        type="date"
-        variant="outlined"
-        color="primary"
-        label="Expiry Date"
-        InputLabelProps={{ shrink: true }}
-        disabled={!checked}
-        onChange={(e) => setExpirationDate(e.target.value)}
-        value={expirationDate}
-        sx={{ mb: 4 }}
-      />
-
-      <br />
-      <FormControl sx={{ m: 1, width: "50ch" }} variant="outlined">
-        <TextField
-          label="Transaction ID"
-          id="outlined-start-adornment"
-          sx={{ m: 1, width: "25ch" }}
+          size="small"
         />
       </FormControl>
       <FormControlLabel
         value="start"
-        label="Update Public Pool Stats"
-        labelPlacement="start"
-        sx={{ mr: "13ch", color: "#434343" }}
+        label="Wholesale Bond New Issue"
+        labelPlacement="end"
+        sx={{ mr: "4ch", ml: "8ch", color: "#434343" }}
         control={<Checkbox />}
       />
+      <br />
+      <FormControl sx={{ m: 1, width: "50ch" }} variant="outlined">
+        <TextField
+          label="Transaction Name"
+          id="outlined-start-adornment"
+          sx={{ m: 1, width: "50ch" }}
+          size="small"
+        />
+      </FormControl>
       <FormControlLabel
         value="start"
-        label="Hidden"
-        labelPlacement="start"
-        sx={{ mr: "13ch", color: "#434343" }}
+        label="Securitisation New Issue"
+        labelPlacement="end"
+        sx={{ mr: "4ch", ml: "8ch", color: "#434343" }}
+        control={<Checkbox />}
+      />
+      <br />
+      <FormControl sx={{ m: 1, width: "50ch" }} variant="outlined">
+        <TextField
+          label="Originator"
+          id="outlined-start-adornment"
+          sx={{ m: 1, width: "50ch" }}
+          size="small"
+        />
+      </FormControl>
+      <FormControlLabel
+        value="start"
+        label="Listed Hybrid"
+        labelPlacement="end"
+        sx={{ mr: "4ch", ml: "8ch", color: "#434343" }}
+        control={<Checkbox />}
+      />
+      <br />
+      <FormControl sx={{ m: 1, width: "50ch" }} variant="outlined">
+        <TextField
+          label="Issuer"
+          id="outlined-start-adornment"
+          sx={{ m: 1, width: "50ch" }}
+          size="small"
+        />
+      </FormControl>
+      <FormControlLabel
+        value="start"
+        label="Listed LIC/LIT"
+        labelPlacement="end"
+        sx={{ mr: "4ch", ml: "8ch", color: "#434343" }}
         control={<Checkbox />}
       />
       <br />
@@ -118,113 +97,81 @@ const MUIForm = () => {
           id="demo-simple-select"
           label="Asset Class"
           onChange={handleChange}
-          sx={{ m: 1, width: "25ch" }}
+          sx={{ m: 1, width: "50ch" }}
+          size="small"
         >
-          <MenuItem value="Mortgages-Prime">Mortgages-Prime</MenuItem>
+          <MenuItem value="Securitisation">Securitisation</MenuItem>
         </Select>
       </FormControl>
+      <FormControlLabel
+        value="start"
+        label="Private Placement"
+        labelPlacement="end"
+        sx={{ mr: "4ch", ml: "8ch", color: "#434343" }}
+        control={<Checkbox />}
+      />
+      <br/>
       <FormControl sx={{ m: 1, width: "50ch" }}>
-        <InputLabel id="demo-simple-select-label">Structure Class</InputLabel>
+        <InputLabel id="demo-simple-select-label">Issuance Type</InputLabel>
         <Select
           labelId="demo-simple-select-label"
           id="demo-simple-select"
-          label="Structure Class"
+          label="Issuance Type"
           onChange={handleChange}
           sx={{ m: 1, width: "25ch" }}
+          size="small"
         >
           <MenuItem value="RMBS">RMBS</MenuItem>
         </Select>
       </FormControl>
+      <FormControl sx={{ m: 1, width: "50ch" }}>
+        <InputLabel id="demo-simple-select-label">Region</InputLabel>
+        <Select
+          labelId="demo-simple-select-label"
+          id="demo-simple-select"
+          label="Region"
+          onChange={handleChange}
+          sx={{ m: 1, width: "25ch" }}
+          size="small"
+        >
+          <MenuItem value="Australia">Australia</MenuItem>
+        </Select>
+      </FormControl>
       <br />
+      <FormControl sx={{ m: 1, width: "50ch" }} variant="outlined">
+        <TextField
+          label="Deal Team Name"
+          id="outlined-start-adornment"
+          sx={{ m: 1, width: "50ch" }}
+          size="small"
+        />
+      </FormControl>
+      <br/>
+      <FormControl sx={{ m: 1, width: "50ch" }}>
+        <InputLabel id="demo-simple-select-label">Executin Lead</InputLabel>
+        <Select
+          labelId="demo-simple-select-label"
+          id="demo-simple-select"
+          label="Executin Lead"
+          onChange={handleChange}
+          sx={{ m: 1, width: "25ch" }}
+          size="small"
+        >
+          <MenuItem value="John Doe">John Doe</MenuItem>
+        </Select>
+      </FormControl>
+      <br/>
       <FormControl sx={{ m: 1, width: "50ch" }} variant="outlined">
         <TextField
           label="Group Name"
           id="outlined-start-adornment"
           sx={{ m: 1, width: "50ch" }}
+          size="small"
         />
       </FormControl>
-      <FormControl sx={{ m: 1, width: "50ch" }} variant="outlined">
-        <TextField
-          label="Support Facility"
-          id="outlined-start-adornment"
-          sx={{ m: 1, width: "50ch" }}
-        />
-      </FormControl>
-      <br />
-      <FormControl sx={{ m: 1, width: "50ch" }}>
-        <InputLabel id="demo-simple-select-label">ECRS</InputLabel>
-        <Select
-          labelId="demo-simple-select-label"
-          id="demo-simple-select"
-          label="ECRS"
-          onChange={handleChange}
-          sx={{ m: 1, width: "25ch" }}
-        >
-          <MenuItem value="1">1</MenuItem>
-          <MenuItem value="2">2</MenuItem>
-          <MenuItem value="3">3</MenuItem>
-          <MenuItem value="4">4</MenuItem>
-        </Select>
-      </FormControl>
-
-      <FormControl sx={{ m: 1, width: "50ch" }}>
-        <InputLabel id="demo-simple-select-label">Facility Type</InputLabel>
-        <Select
-          labelId="demo-simple-select-label"
-          id="demo-simple-select"
-          label="Facility Type"
-          onChange={handleChange}
-          sx={{ m: 1, width: "25ch" }}
-        >
-          <MenuItem value="Revolving">Revolving</MenuItem>
-        </Select>
-      </FormControl>
-      <br />
-      <FormControl sx={{ m: 1, width: "75ch" }} variant="outlined">
-        <TextField
-          label="Program Sponsor"
-          id="outlined-start-adornment"
-          sx={{ m: 1, width: "102ch" }}
-        />
-      </FormControl>
-      <br />
-      <FormControl sx={{ m: 1, width: "50ch" }} variant="outlined">
-        <TextField
-          label="Issuer Type"
-          id="outlined-start-adornment"
-          sx={{ m: 1, width: "50ch" }}
-        />
-      </FormControl>
-      <FormControl sx={{ m: 1, width: "50ch" }} variant="outlined">
-        <TextField
-          label="Issuer Sub Type"
-          id="outlined-start-adornment"
-          sx={{ m: 1, width: "50ch" }}
-        />
-      </FormControl>
-      <br />
-      <FormControl sx={{ m: 1, width: "50ch" }} variant="outlined">
-        <TextField
-          label="Pool Loader"
-          id="outlined-start-adornment"
-          sx={{ m: 1, width: "50ch" }}
-        />
-      </FormControl>
-      <FormControl sx={{ m: 1, width: "50ch" }} variant="outlined">
-        <TextField
-          label="Issuer Category"
-          id="outlined-start-adornment"
-          sx={{ m: 1, width: "50ch" }}
-        />
-      </FormControl>
-      <br />
-      <Stack spacing={2} direction="row">
-        <Button sx={{ ml: "46ch" }} variant="contained">
-          Update
-        </Button>
-        <Button variant="outlined">Cancel</Button>
-      </Stack>
+      </Box>
     </div>
+    
   );
 };
 
