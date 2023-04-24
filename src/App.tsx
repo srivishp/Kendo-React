@@ -10,7 +10,6 @@ import GridControlsLayout from "./pages/GridControlsLayout";
 import KendoControls from "./pages/KendoControls";
 import DrawerContainer from "./components/DrawerContainer";
 import RouterOutlet from "./components/RouterOutlet";
-import MUIForm from "./pages/MUIForm";
 import Calendar from "./components/Calendar";
 import TransferList from "./components/TransferList";
 import DialogBox from "./components/DialogBox";
@@ -30,7 +29,6 @@ const App = () => {
                 />
                 <Route path="mui" element={<MaterialControls />} />
                 <Route path="kendoControls" element={<KendoControls />} />
-                <Route path="muiform" element={<MUIForm />} />
                 <Route path="calendar" element={<Calendar />} />
                 <Route path="transferlist" element={<TransferList />} />
                 <Route path="dialogbox" element={<DialogBox />} />

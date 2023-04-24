@@ -5,8 +5,9 @@ import Tab from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import Login from "./Login";
-import LayoutGrid from "./LayoutGrid";
+import TransactionForm from "./TransactionForm";
 import RegisterForm from "./RegisterForm";
+import MUIForm from "./MUIForm";
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -59,7 +60,8 @@ const MaterialControls = () => {
           >
             <Tab label="Login Form" {...a11yProps(0)} />
             <Tab label="Registration Form" {...a11yProps(1)} />
-            <Tab label="Layout Grid" {...a11yProps(2)} />
+            <Tab label="Sample MUI Form" {...a11yProps(2)} />
+            <Tab label="Transaction Form" {...a11yProps(3)} />
           </Tabs>
         </Box>
         <TabPanel value={value} index={0}>
@@ -69,8 +71,12 @@ const MaterialControls = () => {
           <RegisterForm />
         </TabPanel>
         <TabPanel value={value} index={2}>
-          <LayoutGrid />
+          <MUIForm />
         </TabPanel>
+        <TabPanel value={value} index={3}>
+          <TransactionForm />
+        </TabPanel>
+        
       </Box>
     </div>
   );
