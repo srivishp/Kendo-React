@@ -31,13 +31,13 @@ import { Label } from "@progress/kendo-react-labels";
 
 //   return (
 //     <div>
-//       <Box
-//         sx={{
-//           width: 800,
-//           height: 1000,
-//           border: "1px dashed grey",
-//         }}
-//       >
+// <Box
+//   sx={{
+//     width: 800,
+//     height: 1000,
+//     border: "1px dashed grey",
+//   }}
+// >
 //         <FormControl sx={{ m: 1, width: "48ch" }} variant="outlined">
 //           <TextField
 //             label="GUID"
@@ -262,36 +262,63 @@ const MUIForm = () => {
     // </Box>
     <Grid container spacing={2}>
       <Grid container spacing={0} item xs={1}>
-           <FormControl sx={{ mr: 0, width: "20ch" }} variant="outlined">
-             <FormLabel sx={{ color: "primary" }}>GUID</FormLabel>
-          </FormControl>
-         </Grid>
-         <Grid item xs={2}>
-           <FormControl sx={{ ml: 0, width: "20ch" }} variant="outlined">
-             <TextField
-               label="GUID"
-               id="outlined-start-adornment"
-               size="small"
-               sx={{ width: "20ch" }}
-             />
-           </FormControl>
-         </Grid>
-         <Grid container spacing={0} item xs={1}>
-           <FormControl sx={{ mr: 0, width: "20ch" }} variant="outlined">
-             <FormLabel sx={{ color: "primary" }}>Transaction Name</FormLabel>
-          </FormControl>
-         </Grid>
-         <Grid item xs={2}>
-           <FormControl sx={{ ml: 0, width: "20ch" }} variant="outlined">
-             <TextField
-               label="GUID"
-               id="outlined-start-adornment"
-               size="small"
-               sx={{ width: "20ch" }}
-             />
-           </FormControl>
-         </Grid>
-  </Grid>
+        <FormControl sx={{ mr: 0, width: "10ch" }} variant="outlined">
+          <FormLabel sx={{ color: "primary" }}>GUID</FormLabel>
+        </FormControl>
+      </Grid>
+      <Grid item xs={3}>
+        <FormControl sx={{ ml: 0, width: "20ch" }} variant="outlined">
+          <TextField
+            label="GUID"
+            id="outlined-start-adornment"
+            size="small"
+            sx={{ width: "35ch" }}
+          />
+        </FormControl>
+      </Grid>
+      <Grid item xs={3}>
+        <FormControlLabel
+          value="start"
+          label="Wholesale Bond New Issue"
+          labelPlacement="end"
+          sx={{ ml: 0, width: "20ch", color: "#434343" }}
+          control={<Checkbox />}
+        />
+      </Grid>
+      <Grid container spacing={4} m={1} item xs={4}>
+        <Box
+          sx={{
+            width: 300,
+            height: 300,
+            border: "1px dashed grey",
+          }}
+        />
+      </Grid>
+      <Grid container spacing={0} item xs={1}>
+        <FormControl sx={{ mr: 0, ml:0, width: "10ch" }} variant="outlined">
+          <FormLabel sx={{ color: "primary" }}>Transaction Name</FormLabel>
+        </FormControl>
+      </Grid>
+      <Grid item xs={3}>
+        <FormControl sx={{ ml: 0, width: "20ch" }} variant="outlined">
+          <TextField
+            label="Transaction Name"
+            id="outlined-start-adornment"
+            size="small"
+            sx={{ width: "35ch" }}
+          />
+        </FormControl>
+      </Grid>
+      <Grid item xs={2}>
+        <FormControlLabel
+          value="start"
+          label="Securitisation New Issue"
+          labelPlacement="end"
+          sx={{ ml: 0, width: "20ch", color: "#434343" }}
+          control={<Checkbox />}
+        />
+      </Grid>
+    </Grid>
   );
 };
 
