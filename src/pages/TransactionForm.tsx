@@ -182,13 +182,18 @@ const MUIForm = () => {
           sx={{ mb: "5px", width: "25ch" }}
         />
       </FormControl>
-      <FormControl sx={{ mb: "5px", width: "20ch" }} variant="outlined">
-        <TextField
+      <FormControl size="small" sx={{ mb: "5px", width: "20ch" }}>
+        <InputLabel id="demo-simple-select-label" >Execution Lead</InputLabel>
+        <Select
+          labelId="demo-simple-select-label"
+          id="demo-simple-select"
           label="Execution Lead"
-          id="outlined-start-adornment"
           size="small"
+          onChange={handleChange}
           sx={{ mb: "5px", width: "25ch" }}
-        />
+        >
+          <MenuItem value="John Doe">John Doe</MenuItem>
+        </Select>
       </FormControl>
       <FormControl sx={{ mb: "5px", width: "20ch" }} variant="outlined">
         <LocalizationProvider
