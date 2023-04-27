@@ -20,6 +20,7 @@ import { styled } from "@mui/material/styles";
 import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
 import { Label } from "@progress/kendo-react-labels";
+import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
 
 const FormWrapper = styled("form")({
   display: "flex",
@@ -64,7 +65,7 @@ const MUIForm = () => {
         <FormLabel sx={{ color: "primary", margin: "10px" }}>Issuer</FormLabel>
       </FormControl>
       <FormControl
-        sx={{ mb: "5px", mr: 0, ml: 0, width: "15ch" }}
+        sx={{ mb: "8px", mr: 0, ml: 0, width: "15ch" }}
         variant="outlined"
       >
         <FormLabel sx={{ color: "primary", margin: "10px" }}>
@@ -72,7 +73,7 @@ const MUIForm = () => {
         </FormLabel>
       </FormControl>
       <FormControl
-        sx={{ mb: "5px", mr: 0, ml: 0, width: "15ch" }}
+        sx={{ mb: "10px", mr: 0, ml: 0, width: "15ch" }}
         variant="outlined"
       >
         <FormLabel sx={{ color: "primary", margin: "10px" }}>
@@ -88,7 +89,7 @@ const MUIForm = () => {
         </FormLabel>
       </FormControl>
       <FormControl
-        sx={{ mb: "5px", mr: 0, ml: 0, width: "15ch" }}
+        sx={{ mb: "7px", mr: 0, ml: 0, width: "15ch" }}
         variant="outlined"
       >
         <FormLabel sx={{ color: "primary", margin: "10px" }}>
@@ -96,7 +97,7 @@ const MUIForm = () => {
         </FormLabel>
       </FormControl>
       <FormControl
-        sx={{ mb: "5px", mr: 0, ml: 0, width: "15ch" }}
+        sx={{ mb: "6px", mr: 0, ml: 0, width: "15ch" }}
         variant="outlined"
       >
         <FormLabel sx={{ color: "primary", margin: "10px" }}>
@@ -104,7 +105,7 @@ const MUIForm = () => {
         </FormLabel>
       </FormControl>
       <FormControl
-        sx={{ mb: "5px", mr: 0, ml: 0, width: "15ch" }}
+        sx={{ mb: "7px", mr: 0, ml: 0, width: "15ch" }}
         variant="outlined"
       >
         <FormLabel sx={{ color: "primary", margin: "10px" }}>
@@ -112,7 +113,7 @@ const MUIForm = () => {
         </FormLabel>
       </FormControl>
       <FormControl
-        sx={{ mr: 0, ml: 0, mb: "170px", width: "20ch" }}
+        sx={{ mr: 0, ml: 0, mb: "160px", width: "20ch" }}
         variant="outlined"
       >
         <FormLabel sx={{ color: "primary", margin: "10px" }}>
@@ -152,8 +153,8 @@ const MUIForm = () => {
           sx={{ mb: "5px", width: "25ch" }}
         />
       </FormControl>
-      <FormControl sx={{ mb: "5px", width: "20ch" }}>
-        <InputLabel id="demo-simple-select-label">Asset Class</InputLabel>
+      <FormControl size="small" sx={{ mb: "5px", width: "20ch" }}>
+        <InputLabel id="demo-simple-select-label" >Asset Class</InputLabel>
         <Select
           labelId="demo-simple-select-label"
           id="demo-simple-select"
@@ -190,28 +191,48 @@ const MUIForm = () => {
         />
       </FormControl>
       <FormControl sx={{ mb: "5px", width: "20ch" }} variant="outlined">
-        <TextField
-          label="Launch Date"
-          id="outlined-start-adornment"
+        <LocalizationProvider
+          components={["DatePicker"]}
           size="small"
-          sx={{ mb: "5px", width: "25ch" }}
-        />
+          dateAdapter={AdapterDayjs}
+        >
+          <DatePicker
+            slotProps={{ textField: { size: "small" } }}
+            label="Launch Date"
+            sx={{ mb: "5px", width: "25ch" }}
+          />
+        </LocalizationProvider>
       </FormControl>
       <FormControl sx={{ mb: "5px", width: "20ch" }} variant="outlined">
-        <TextField
-          label="Pricing Date"
-          id="outlined-start-adornment"
+        <LocalizationProvider
+          components={["DatePicker"]}
           size="small"
-          sx={{ mb: "5px", width: "25ch" }}
-        />
+          dateAdapter={AdapterDayjs}
+        >
+          <DatePicker
+            slotProps={{ textField: { size: "small" } }}
+            label="Pricing Date"
+            sx={{ mb: "5px", width: "25ch" }}
+          />
+        </LocalizationProvider>
       </FormControl>
       <FormControl sx={{ mb: "5px", width: "20ch" }} variant="outlined">
-        <TextField
-          label="Settlement Date"
-          id="outlined-start-adornment"
+        <LocalizationProvider
+          components={["DatePicker"]}
           size="small"
-          sx={{ mb: "150px", width: "25ch" }}
-        />
+          dateAdapter={AdapterDayjs}
+        >
+          <DatePicker
+            slotProps={{ textField: { size: "small" } }}
+            label="Settlement Date"
+            sx={{ mb: "80px", width: "25ch" }}
+          />
+        </LocalizationProvider>
+      </FormControl>
+      <FormControl sx={{ width: "15ch" }}>
+        <Button variant="contained" color="success">
+          Save
+        </Button>
       </FormControl>
 
       <FormControlLabel
@@ -257,24 +278,27 @@ const MUIForm = () => {
         control={<Checkbox />}
       />
 
-      <FormControl sx={{ mb: "5px", mr: 0, width: "15ch" }} variant="outlined">
+      <FormControl sx={{ mb: "5px", mr: 0, width: "10ch" }} variant="outlined">
         <FormLabel sx={{ color: "primary", margin: "10px" }}>Region</FormLabel>
       </FormControl>
-      <FormControl sx={{ mb: "5px", mr: 0, width: "15ch" }} variant="outlined">
+      <FormControl sx={{ mb: "5px", mr: 0, width: "10ch" }} variant="outlined">
         <FormLabel sx={{ color: "primary", margin: "10px" }}>ISIN</FormLabel>
       </FormControl>
       <FormControl sx={{ mb: "5px", mr: 0, width: "15ch" }} variant="outlined">
-        <FormLabel sx={{ color: "primary", margin: "10px", mb: "250px" }}>
+        <FormLabel sx={{ color: "primary", margin: "10px", mb: "200px" }}>
           Deal Volume
         </FormLabel>
       </FormControl>
+      <FormControl sx={{ width: "15ch" }}>
+        <Button variant="contained">Save & Close</Button>
+      </FormControl>
 
-      <FormControl sx={{ mb: "5px", width: "20ch", mt: "295px" }}>
+      <FormControl size="small" sx={{ mb: "5px", width: "20ch", mt: "295px" }}>
         <InputLabel id="demo-simple-select-label">Region</InputLabel>
         <Select
           labelId="demo-simple-select-label"
           id="demo-simple-select"
-          label="Asset Class"
+          label="Region"
           size="small"
           onChange={handleChange}
           sx={{ mb: "5px", width: "25ch" }}
@@ -290,13 +314,16 @@ const MUIForm = () => {
           sx={{ mb: "5px", width: "25ch" }}
         />
       </FormControl>
-      <FormControl sx={{ width: "20ch", mb: "250px" }} variant="outlined">
+      <FormControl sx={{ width: "20ch", mb: "188px" }} variant="outlined">
         <TextField
           label="Deal Volume"
           id="outlined-start-adornment"
           size="small"
           sx={{ mb: "5px", width: "25ch" }}
         />
+      </FormControl>
+      <FormControl sx={{ width: "15ch" }}>
+        <Button variant="outlined">Close</Button>
       </FormControl>
 
       <Box
