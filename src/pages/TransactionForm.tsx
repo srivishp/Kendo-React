@@ -154,7 +154,7 @@ const MUIForm = () => {
         />
       </FormControl>
       <FormControl size="small" sx={{ mb: "5px", width: "20ch" }}>
-        <InputLabel id="demo-simple-select-label" >Asset Class</InputLabel>
+        <InputLabel id="demo-simple-select-label">Asset Class</InputLabel>
         <Select
           labelId="demo-simple-select-label"
           id="demo-simple-select"
@@ -183,7 +183,7 @@ const MUIForm = () => {
         />
       </FormControl>
       <FormControl size="small" sx={{ mb: "5px", width: "20ch" }}>
-        <InputLabel id="demo-simple-select-label" >Execution Lead</InputLabel>
+        <InputLabel id="demo-simple-select-label">Execution Lead</InputLabel>
         <Select
           labelId="demo-simple-select-label"
           id="demo-simple-select"
@@ -355,6 +355,24 @@ const MUIForm = () => {
         <br />
         <br />
         <Button variant="contained">Submit</Button>
+      </Box>
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <Box
+        sx={{
+          width: 100,
+          height: 100,
+          border: "1px white",
+          color: "#434343",
+        }}
+      >
+        <b>Project Team:</b>  Unassigned
       </Box>
     </FormWrapper>
   );
