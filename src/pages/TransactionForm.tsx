@@ -30,6 +30,24 @@ const FormWrapper = styled("form")({
   justifyContent: "start",
 });
 
+const LabelWrapper = styled("form")({
+  color: "primary",
+  margin: "10px",
+});
+
+const ControlWrapper = styled("form")({
+  mb: "5px",
+  width: "20ch",
+});
+
+const CheckboxWrapper = styled("form")({
+  mb: "5px",
+  width: "20ch",
+  color: "#434343",
+  value: "start",
+  labelPlacement: "end",
+});
+
 const MUIForm = () => {
   const [dealType, setDealType] = React.useState("");
   const handleChange = (event: SelectChangeEvent) => {
@@ -39,89 +57,67 @@ const MUIForm = () => {
 
   return (
     <FormWrapper>
-      <FormControl sx={{ mb: "5px", mr: 0, width: "15ch" }} variant="outlined">
-        <FormLabel sx={{ color: "primary", margin: "10px" }}>GUID</FormLabel>
-      </FormControl>
-      <FormControl
-        sx={{ mb: "5px", mr: 0, ml: 0, width: "20ch" }}
-        variant="outlined"
-      >
-        <FormLabel sx={{ color: "primary", margin: "10px" }}>
-          Transaction Name
-        </FormLabel>
-      </FormControl>
-      <FormControl
-        sx={{ mb: "5px", mr: 0, ml: 0, width: "15ch" }}
-        variant="outlined"
-      >
-        <FormLabel sx={{ color: "primary", margin: "10px" }}>
-          Originator
-        </FormLabel>
-      </FormControl>
-      <FormControl
-        sx={{ mb: "5px", mr: 0, ml: 0, width: "15ch" }}
-        variant="outlined"
-      >
-        <FormLabel sx={{ color: "primary", margin: "10px" }}>Issuer</FormLabel>
-      </FormControl>
-      <FormControl
-        sx={{ mb: "8px", mr: 0, ml: 0, width: "15ch" }}
-        variant="outlined"
-      >
-        <FormLabel sx={{ color: "primary", margin: "10px" }}>
-          Asset Class
-        </FormLabel>
-      </FormControl>
-      <FormControl
-        sx={{ mb: "10px", mr: 0, ml: 0, width: "15ch" }}
-        variant="outlined"
-      >
-        <FormLabel sx={{ color: "primary", margin: "10px" }}>
-          Issuance Type
-        </FormLabel>
-      </FormControl>
-      <FormControl
-        sx={{ mb: "5px", mr: 0, ml: 0, width: "20ch" }}
-        variant="outlined"
-      >
-        <FormLabel sx={{ color: "primary", margin: "10px" }}>
-          Deal Team Name
-        </FormLabel>
-      </FormControl>
-      <FormControl
-        sx={{ mb: "7px", mr: 0, ml: 0, width: "15ch" }}
-        variant="outlined"
-      >
-        <FormLabel sx={{ color: "primary", margin: "10px" }}>
-          Execution Lead
-        </FormLabel>
-      </FormControl>
-      <FormControl
-        sx={{ mb: "6px", mr: 0, ml: 0, width: "15ch" }}
-        variant="outlined"
-      >
-        <FormLabel sx={{ color: "primary", margin: "10px" }}>
-          Launch Date
-        </FormLabel>
-      </FormControl>
-      <FormControl
-        sx={{ mb: "7px", mr: 0, ml: 0, width: "15ch" }}
-        variant="outlined"
-      >
-        <FormLabel sx={{ color: "primary", margin: "10px" }}>
-          Pricing Date
-        </FormLabel>
-      </FormControl>
-      <FormControl
-        sx={{ mr: 0, ml: 0, mb: "160px", width: "20ch" }}
-        variant="outlined"
-      >
-        <FormLabel sx={{ color: "primary", margin: "10px" }}>
-          Settlement Date
-        </FormLabel>
-      </FormControl>
+      <ControlWrapper>
+        <FormControl>
+          <LabelWrapper>
+            <FormLabel>GUID</FormLabel>
+          </LabelWrapper>
+        </FormControl>
+        <FormControl>
+          <LabelWrapper>
+            <FormLabel>Transaction Name</FormLabel>
+          </LabelWrapper>
+        </FormControl>
+        <FormControl>
+          <LabelWrapper>
+            <FormLabel>Originator</FormLabel>
+          </LabelWrapper>
+        </FormControl>
+        <br />
+        <FormControl>
+          <LabelWrapper>
+            <FormLabel>Issuer</FormLabel>
+          </LabelWrapper>
+        </FormControl>
+        <br />
+        <FormControl >
+          <LabelWrapper>
+            <FormLabel>Asset Class</FormLabel>
+          </LabelWrapper>
+        </FormControl>
+        <FormControl sx={{ mb: "10px"}}>
+          <LabelWrapper>
+            <FormLabel>Issuance Type</FormLabel>
+          </LabelWrapper>
+        </FormControl>
+        <FormControl sx={{ mb: "10px" }}>
+          <LabelWrapper>
+            <FormLabel>Deal Team Name</FormLabel>
+          </LabelWrapper>
+        </FormControl>
+        <FormControl sx={{ mb: "10px"}}>
+          <LabelWrapper>
+            <FormLabel>Execution Lead</FormLabel>
+          </LabelWrapper>
+        </FormControl>
+        <FormControl sx={{ mb: "6px" }}>
+          <LabelWrapper>
+            <FormLabel>Launch Date</FormLabel>
+          </LabelWrapper>
+        </FormControl>
+        <FormControl sx={{ mb: "7px" }}>
+          <LabelWrapper>
+            <FormLabel>Pricing Date</FormLabel>
+          </LabelWrapper>
+        </FormControl>
+        <FormControl sx={{ mb: "175px"}}>
+          <LabelWrapper>
+            <FormLabel>Settlement Date</FormLabel>
+          </LabelWrapper>
+        </FormControl>
+      </ControlWrapper>
 
-      <FormControl sx={{ mb: "5px", width: "20ch" }} variant="outlined">
+      <FormControl  variant="outlined">
         <TextField
           label="GUID"
           id="outlined-start-adornment"
@@ -129,7 +125,7 @@ const MUIForm = () => {
           sx={{ mb: "5px", width: "25ch" }}
         />
       </FormControl>
-      <FormControl sx={{ mb: "5px", width: "20ch" }} variant="outlined">
+      <FormControl  variant="outlined">
         <TextField
           label="Transaction Name"
           id="outlined-start-adornment"
@@ -137,7 +133,7 @@ const MUIForm = () => {
           sx={{ mb: "5px", width: "25ch" }}
         />
       </FormControl>
-      <FormControl sx={{ mb: "5px", width: "20ch" }} variant="outlined">
+      <FormControl variant="outlined">
         <TextField
           label="Originator"
           id="outlined-start-adornment"
@@ -145,7 +141,7 @@ const MUIForm = () => {
           sx={{ mb: "5px", width: "25ch" }}
         />
       </FormControl>
-      <FormControl sx={{ mb: "5px", width: "20ch" }} variant="outlined">
+      <FormControl  variant="outlined">
         <TextField
           label="Issuer"
           id="outlined-start-adornment"
@@ -153,7 +149,7 @@ const MUIForm = () => {
           sx={{ mb: "5px", width: "25ch" }}
         />
       </FormControl>
-      <FormControl size="small" sx={{ mb: "5px", width: "20ch" }}>
+      <FormControl size="small" >
         <InputLabel id="demo-simple-select-label">Asset Class</InputLabel>
         <Select
           labelId="demo-simple-select-label"
@@ -234,67 +230,67 @@ const MUIForm = () => {
           />
         </LocalizationProvider>
       </FormControl>
-      <FormControl sx={{ width: "15ch" }}>
+      <FormControl sx={{ width: "20ch" }}>
         <Button variant="contained" color="success">
           Save
         </Button>
       </FormControl>
 
-      <FormControlLabel
-        value="start"
-        label="Wholesale Bond New Issue"
-        labelPlacement="end"
-        sx={{ mb: "5px", width: "20ch", color: "#434343" }}
-        control={<Checkbox />}
-      />
-      <FormControlLabel
-        value="start"
-        label="Securitisation Bond New Issue"
-        labelPlacement="end"
-        sx={{ mb: "5px", width: "20ch", color: "#434343" }}
-        control={<Checkbox />}
-      />
-      <FormControlLabel
-        value="start"
-        label="Listed Hybrid"
-        labelPlacement="end"
-        sx={{ mb: "5px", width: "20ch", color: "#434343" }}
-        control={<Checkbox />}
-      />
-      <FormControlLabel
-        value="start"
-        label="Listed LIC/LIT"
-        labelPlacement="end"
-        sx={{ mb: "5px", width: "20ch", color: "#434343" }}
-        control={<Checkbox />}
-      />
-      <FormControlLabel
-        value="start"
-        label="Private Placement"
-        labelPlacement="end"
-        sx={{ mb: "5px", width: "20ch", color: "#434343" }}
-        control={<Checkbox />}
-      />
-      <FormControlLabel
-        value="start"
-        label="Equity"
-        labelPlacement="end"
-        sx={{ mb: "5px", width: "20ch", color: "#434343" }}
-        control={<Checkbox />}
-      />
+      <CheckboxWrapper>
+        <FormControlLabel
+          value="start"
+          label="Wholesale Bond New Issue"
+          labelPlacement="end"
+          control={<Checkbox />}
+        />
+        <FormControlLabel
+          value="start"
+          label="Securitisation Bond New Issue"
+          labelPlacement="end"
+          control={<Checkbox />}
+        />
+        <FormControlLabel
+          value="start"
+          label="Listed Hybrid"
+          labelPlacement="end"
+          control={<Checkbox />}
+        />
+        <FormControlLabel
+          value="start"
+          label="Listed LIC/LIT"
+          labelPlacement="end"
+          control={<Checkbox />}
+        />
+        <FormControlLabel
+          value="start"
+          label="Private Placement"
+          labelPlacement="end"
+          control={<Checkbox />}
+        />
+        <FormControlLabel
+          value="start"
+          label="Equity"
+          labelPlacement="end"
+          control={<Checkbox />}
+        />
+      </CheckboxWrapper>
 
-      <FormControl sx={{ mb: "5px", mr: 0, width: "10ch" }} variant="outlined">
-        <FormLabel sx={{ color: "primary", margin: "10px" }}>Region</FormLabel>
+      <FormControl sx={{ mb: "5px", width: "10ch" }} variant="outlined">
+        <LabelWrapper>
+          <FormLabel>Region</FormLabel>
+        </LabelWrapper>
       </FormControl>
-      <FormControl sx={{ mb: "5px", mr: 0, width: "10ch" }} variant="outlined">
-        <FormLabel sx={{ color: "primary", margin: "10px" }}>ISIN</FormLabel>
+      <FormControl sx={{ mb: "5px", width: "10ch" }} variant="outlined">
+        <LabelWrapper>
+          <FormLabel>ISIN</FormLabel>
+        </LabelWrapper>
       </FormControl>
-      <FormControl sx={{ mb: "5px", mr: 0, width: "15ch" }} variant="outlined">
-        <FormLabel sx={{ color: "primary", margin: "10px", mb: "200px" }}>
-          Deal Volume
-        </FormLabel>
+      <FormControl sx={{ mb: "5px", width: "20ch" }} variant="outlined">
+        <LabelWrapper>
+          <FormLabel sx={{ mb: "300px" }}>Deal Volume</FormLabel>
+        </LabelWrapper>
       </FormControl>
-      <FormControl sx={{ width: "15ch" }}>
+      <FormControl sx={{ width: "20ch" }}>
         <Button variant="contained">Save & Close</Button>
       </FormControl>
 
@@ -327,7 +323,7 @@ const MUIForm = () => {
           sx={{ mb: "5px", width: "25ch" }}
         />
       </FormControl>
-      <FormControl sx={{ width: "15ch" }}>
+      <FormControl sx={{ width: "20ch" }}>
         <Button variant="outlined">Close</Button>
       </FormControl>
 
@@ -372,7 +368,7 @@ const MUIForm = () => {
           color: "#434343",
         }}
       >
-        <b>Project Team:</b>  Unassigned
+        <b>Project Team:</b> Unassigned
       </Box>
     </FormWrapper>
   );
