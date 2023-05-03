@@ -85,27 +85,27 @@ const MUIForm = () => {
             <FormLabel>Asset Class</FormLabel>
           </LabelWrapper>
         </FormControl>
-        <FormControl sx={{ mb: "10px"}}>
+        <FormControl >
           <LabelWrapper>
             <FormLabel>Issuance Type</FormLabel>
           </LabelWrapper>
         </FormControl>
-        <FormControl sx={{ mb: "10px" }}>
+        <FormControl >
           <LabelWrapper>
             <FormLabel>Deal Team Name</FormLabel>
           </LabelWrapper>
         </FormControl>
-        <FormControl sx={{ mb: "10px"}}>
+        <FormControl >
           <LabelWrapper>
             <FormLabel>Execution Lead</FormLabel>
           </LabelWrapper>
         </FormControl>
-        <FormControl sx={{ mb: "6px" }}>
+        <FormControl >
           <LabelWrapper>
             <FormLabel>Launch Date</FormLabel>
           </LabelWrapper>
         </FormControl>
-        <FormControl sx={{ mb: "7px" }}>
+        <FormControl >
           <LabelWrapper>
             <FormLabel>Pricing Date</FormLabel>
           </LabelWrapper>
@@ -155,14 +155,14 @@ const MUIForm = () => {
           labelId="demo-simple-select-label"
           id="demo-simple-select"
           label="Asset Class"
-          size="small"
+          
           onChange={handleChange}
           sx={{ mb: "5px", width: "25ch" }}
         >
           <MenuItem value="Securitisation">Securitisation</MenuItem>
         </Select>
       </FormControl>
-      <FormControl sx={{ mb: "5px", width: "20ch" }} variant="outlined">
+      <FormControl  variant="outlined">
         <TextField
           label="Issuance Type"
           id="outlined-start-adornment"
@@ -170,7 +170,7 @@ const MUIForm = () => {
           sx={{ mb: "5px", width: "25ch" }}
         />
       </FormControl>
-      <FormControl sx={{ mb: "5px", width: "20ch" }} variant="outlined">
+      <FormControl variant="outlined">
         <TextField
           label="Deal Team Name"
           id="outlined-start-adornment"
@@ -178,7 +178,7 @@ const MUIForm = () => {
           sx={{ mb: "5px", width: "25ch" }}
         />
       </FormControl>
-      <FormControl size="small" sx={{ mb: "5px", width: "20ch" }}>
+      <FormControl size="small" >
         <InputLabel id="demo-simple-select-label">Execution Lead</InputLabel>
         <Select
           labelId="demo-simple-select-label"
@@ -191,7 +191,7 @@ const MUIForm = () => {
           <MenuItem value="John Doe">John Doe</MenuItem>
         </Select>
       </FormControl>
-      <FormControl sx={{ mb: "5px", width: "20ch" }} variant="outlined">
+      <FormControl  variant="outlined">
         <LocalizationProvider
           components={["DatePicker"]}
           size="small"
@@ -204,7 +204,7 @@ const MUIForm = () => {
           />
         </LocalizationProvider>
       </FormControl>
-      <FormControl sx={{ mb: "5px", width: "20ch" }} variant="outlined">
+      <FormControl variant="outlined">
         <LocalizationProvider
           components={["DatePicker"]}
           size="small"
@@ -217,7 +217,7 @@ const MUIForm = () => {
           />
         </LocalizationProvider>
       </FormControl>
-      <FormControl sx={{ mb: "5px", width: "20ch" }} variant="outlined">
+      <FormControl variant="outlined">
         <LocalizationProvider
           components={["DatePicker"]}
           size="small"
