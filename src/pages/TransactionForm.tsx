@@ -267,7 +267,7 @@ const MUIForm = () => {
           labelPlacement="end"
           control={<Checkbox />}
         />
-        <FormControlLabel
+        <FormControlLabel sx = {{mb: "50px"}}
           value="start"
           label="Equity"
           labelPlacement="end"
@@ -287,14 +287,14 @@ const MUIForm = () => {
       </FormControl>
       <FormControl sx={{ mb: "5px", width: "20ch" }} variant="outlined">
         <LabelWrapper>
-          <FormLabel sx={{ mb: "300px" }}>Deal Volume</FormLabel>
+          <FormLabel >Deal Volume</FormLabel>
         </LabelWrapper>
       </FormControl>
-      <FormControl sx={{ width: "20ch" }}>
+      <FormControl sx={{ width: "20ch", mt: "110px" }}>
         <Button variant="contained">Save & Close</Button>
       </FormControl>
 
-      <FormControl size="small" sx={{ mb: "5px", width: "20ch", mt: "295px" }}>
+      <FormControl size="small" sx={{ width: "20ch", mt: "270px" }}>
         <InputLabel id="demo-simple-select-label">Region</InputLabel>
         <Select
           labelId="demo-simple-select-label"
@@ -307,7 +307,7 @@ const MUIForm = () => {
           <MenuItem value="Australia">Australia</MenuItem>
         </Select>
       </FormControl>
-      <FormControl sx={{ mb: "5px", width: "20ch" }} variant="outlined">
+      <FormControl sx={{  width: "20ch" }} variant="outlined">
         <TextField
           label="ISIN"
           id="outlined-start-adornment"
@@ -315,7 +315,7 @@ const MUIForm = () => {
           sx={{ mb: "5px", width: "25ch" }}
         />
       </FormControl>
-      <FormControl sx={{ width: "20ch", mb: "188px" }} variant="outlined">
+      <FormControl sx={{ width: "20ch", mb: "138px" }} variant="outlined">
         <TextField
           label="Deal Volume"
           id="outlined-start-adornment"
