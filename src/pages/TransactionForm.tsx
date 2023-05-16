@@ -40,13 +40,13 @@ const MUIForm = () => {
   return (
     <FormWrapper>
       <FormControl sx={{ mb: "5px", mr: 0, width: "15ch" }} variant="outlined">
-        <FormLabel sx={{ color: "primary", margin: "10px" }}>GUID</FormLabel>
+        <FormLabel data-testid="GUID" sx={{ color: "primary", margin: "10px" }}>GUID</FormLabel>
       </FormControl>
       <FormControl
         sx={{ mb: "5px", mr: 0, ml: 0, width: "20ch" }}
         variant="outlined"
       >
-        <FormLabel sx={{ color: "primary", margin: "10px" }}>
+        <FormLabel data-testid="Transaction Name" sx={{ color: "primary", margin: "10px" }}>
           Transaction Name
         </FormLabel>
       </FormControl>
@@ -54,7 +54,7 @@ const MUIForm = () => {
         sx={{ mb: "5px", mr: 0, ml: 0, width: "15ch" }}
         variant="outlined"
       >
-        <FormLabel sx={{ color: "primary", margin: "10px" }}>
+        <FormLabel data-testid="Originator" sx={{ color: "primary", margin: "10px" }}>
           Originator
         </FormLabel>
       </FormControl>
