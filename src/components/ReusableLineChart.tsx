@@ -17,7 +17,7 @@ const categories = ["Mon", "Tue", "Wed", "Thu", "Fri"];
 const ReusableLineChart = (props: any) => {
   const [data, setseriesData] = React.useState(seriesData);
   return (
-    <Chart>
+    <Chart data-testid="lineChart">
       <ChartValueAxis>
         <ChartValueAxisItem title={{ text: "Kilometers" }} min={0} max={100} />
       </ChartValueAxis>

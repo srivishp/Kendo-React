@@ -3,7 +3,7 @@ import Calendar from "./Calendar";
 
 
 //test block
-test("Tests Calendar & Date Picker", () => {
+test("tests if calendar is visible", () => {
   // render the component on virtual dom
   render(<Calendar />);
 

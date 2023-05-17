@@ -63,7 +63,7 @@ const DrawerContainer = (props: {
       <div>
         <div className="custom-toolbar">
           <Button icon="menu" fillMode="flat" onClick={handleClick} />
-          <span className="title">Kendo React & Material UI - POC</span>
+          <span data-testid="drawerTitle" className="title">Kendo React & Material UI - POC</span>
         </div>
 
         <Drawer

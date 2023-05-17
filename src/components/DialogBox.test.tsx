@@ -3,7 +3,7 @@ import DialogBox from "./DialogBox";
 import { DialogContent } from "@mui/material";
 
 //test block
-test("Tests Dialog Box", () => {
+test("tests if button is visible in dialog box", () => {
   // render the component on virtual dom
   render(<DialogBox />);
 

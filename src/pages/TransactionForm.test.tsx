@@ -2,7 +2,7 @@ import { render, screen } from "@testing-library/react";
 import TransactionForm from "./TransactionForm";
 
 //test block
-test("Tests Transaction Form", () => {
+test("tests labels in transaction form", () => {
   // render the component on virtual dom
   render(<TransactionForm />);
 
