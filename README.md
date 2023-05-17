@@ -18,6 +18,9 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
+### Unit Testing Guide
+https://medium.com/swlh/react-testing-using-jest-along-with-code-coverage-report-7454b5ba0236
+
 ### `npm test`
 
 Launches the test runner in the interactive watch mode.\

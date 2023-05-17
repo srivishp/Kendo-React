@@ -13,6 +13,7 @@ import RouterOutlet from "./components/RouterOutlet";
 import Calendar from "./components/Calendar";
 import TransferList from "./components/TransferList";
 import DialogBox from "./components/DialogBox";
+import Counter from "./components/Counter";
 
 const App = () => {
   return (
@@ -32,6 +33,7 @@ const App = () => {
                 <Route path="calendar" element={<Calendar />} />
                 <Route path="transferlist" element={<TransferList />} />
                 <Route path="dialogbox" element={<DialogBox />} />
+                <Route path="counter" element={<Counter />} />
               </Route>
             </Routes>
           </DrawerContainer>

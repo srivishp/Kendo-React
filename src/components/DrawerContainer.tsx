@@ -26,6 +26,7 @@ const items = [
   { text: "Calendar", icon: "k-i-information", route: "/calendar" },
   { text: "Transfer List", icon: "k-i-information", route: "/transferlist" },
   { text: "Dialog Box", icon: "k-i-information", route: "/dialogbox" },
+  { text: "Counter", icon: "k-i-information", route: "/counter" },
 ];
 
 const DrawerContainer = (props: {

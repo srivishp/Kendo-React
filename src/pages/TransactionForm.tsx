@@ -57,20 +57,21 @@ const MUIForm = () => {
 
   return (
     <FormWrapper>
+
       <ControlWrapper>
         <FormControl>
           <LabelWrapper>
-            <FormLabel>GUID</FormLabel>
+            <FormLabel data-testid="GUID">GUID</FormLabel>
           </LabelWrapper>
         </FormControl>
         <FormControl>
           <LabelWrapper>
-            <FormLabel>Transaction Name</FormLabel>
+            <FormLabel data-testid="Transaction Name">Transaction Name</FormLabel>
           </LabelWrapper>
         </FormControl>
         <FormControl>
           <LabelWrapper>
-            <FormLabel>Originator</FormLabel>
+            <FormLabel data-testid="Originator">Originator</FormLabel>
           </LabelWrapper>
         </FormControl>
         <br />
@@ -82,17 +83,17 @@ const MUIForm = () => {
         <br />
         <FormControl >
           <LabelWrapper>
-            <FormLabel>Asset Class</FormLabel>
+            <FormLabel data-testid="Asset Class">Asset Class</FormLabel>
           </LabelWrapper>
         </FormControl>
         <FormControl >
           <LabelWrapper>
-            <FormLabel>Issuance Type</FormLabel>
+            <FormLabel data-testid="Issuance Type">Issuance Type</FormLabel>
           </LabelWrapper>
         </FormControl>
         <FormControl >
           <LabelWrapper>
-            <FormLabel>Deal Team Name</FormLabel>
+            <FormLabel data-testid="Deal Team Name" >Deal Team Name</FormLabel>
           </LabelWrapper>
         </FormControl>
         <FormControl >
@@ -116,6 +117,7 @@ const MUIForm = () => {
           </LabelWrapper>
         </FormControl>
       </ControlWrapper>
+
 
       <FormControl  variant="outlined">
         <TextField
