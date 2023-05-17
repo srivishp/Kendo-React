@@ -10,6 +10,7 @@ test("Tests Transaction Form", () => {
   const guid = screen.getByTestId("GUID");
   const transactionName = screen.getByTestId("Transaction Name");
   const originator = screen.getByTestId("Originator");
+  const issuer = screen.getByTestId("Issuer");
   const assetClass = screen.getByTestId("Asset Class");
   const issuanceType = screen.getByTestId("Issuance Type");
   const dealTeamName = screen.getByTestId("Deal Team Name");
@@ -18,6 +19,7 @@ test("Tests Transaction Form", () => {
   expect(guid).toHaveTextContent("GUID");
   expect(transactionName).toHaveTextContent("Transaction Name");
   expect(originator).toHaveTextContent("Originator");
+  expect(issuer).toHaveTextContent("Issuer");
   expect(assetClass).toHaveTextContent("Asset Class");
   expect(issuanceType).toHaveTextContent("Issuance Type");
   expect(dealTeamName).toHaveTextContent("Deal Team Name");

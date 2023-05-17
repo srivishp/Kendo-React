@@ -77,7 +77,7 @@ const MUIForm = () => {
         <br />
         <FormControl>
           <LabelWrapper>
-            <FormLabel>Issuer</FormLabel>
+            <FormLabel data-testid="Issuer">Issuer</FormLabel>
           </LabelWrapper>
         </FormControl>
         <br />

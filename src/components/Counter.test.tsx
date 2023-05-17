@@ -2,7 +2,7 @@ import { render, screen } from "@testing-library/react";
 import Counter from "./Counter";
 
 //test block
-test("increments counter", () => {
+test("tests counter", () => {
   // render the component on virtual dom
   render(<Counter />);
 

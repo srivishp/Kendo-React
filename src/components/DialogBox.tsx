@@ -67,12 +67,13 @@ const DialogBox = () => {
         onClose={handleClose}
         aria-labelledby="customized-dialog-title"
         open={open}
+        data-testid="dialogElement"
       >
-        <BootstrapDialogTitle  id="customized-dialog-title" onClose={handleClose}>
+        <BootstrapDialogTitle  data-testid="dialogTitle" id="customized-dialog-title" onClose={handleClose}>
           Dialog Title
         </BootstrapDialogTitle>
-        <DialogContent  dividers>
-          <Typography data-testid="dialogContent" gutterBottom>
+        <DialogContent   dividers>
+          <Typography gutterBottom>
             This is the content of the dialog box.
           </Typography>
         </DialogContent>
