@@ -68,7 +68,7 @@ const MUIForm = () => {
         sx={{ mb: "8px", mr: 0, ml: 0, width: "15ch" }}
         variant="outlined"
       >
-        <FormLabel sx={{ color: "primary", margin: "10px" }}>
+        <FormLabel data-testid="Asset Class" sx={{ color: "primary", margin: "10px" }}>
           Asset Class
         </FormLabel>
       </FormControl>
@@ -76,7 +76,7 @@ const MUIForm = () => {
         sx={{ mb: "10px", mr: 0, ml: 0, width: "15ch" }}
         variant="outlined"
       >
-        <FormLabel sx={{ color: "primary", margin: "10px" }}>
+        <FormLabel data-testid="Issuance Type" sx={{ color: "primary", margin: "10px" }}>
           Issuance Type
         </FormLabel>
       </FormControl>
@@ -84,7 +84,7 @@ const MUIForm = () => {
         sx={{ mb: "5px", mr: 0, ml: 0, width: "20ch" }}
         variant="outlined"
       >
-        <FormLabel sx={{ color: "primary", margin: "10px" }}>
+        <FormLabel data-testid="Deal Team Name" sx={{ color: "primary", margin: "10px" }}>
           Deal Team Name
         </FormLabel>
       </FormControl>
