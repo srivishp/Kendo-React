@@ -22,6 +22,33 @@ function union(a: readonly number[], b: readonly number[]) {
   return [...a, ...not(b, a)];
 }
 
+const fruits = [
+  {
+    id: 1,
+    fruitName: "Apples",
+  },
+  {
+    id: 2,
+    fruitName: "Bananas",
+  },
+  {
+    id: 3,
+    fruitName: "Mangoes",
+  },
+  {
+    id: 4,
+    fruitName: "Watermelons",
+  },
+  {
+    id: 5,
+    fruitName: "Pineapples",
+  },
+];
+
+console.log("Fruits", fruits);
+const fruitsArray = fruits.map(({ fruitName }) => [fruitName]).join(", ");
+console.log("FruitsArray", fruitsArray);
+
 const TransferList = () => {
   const [checked, setChecked] = React.useState<readonly number[]>([]);
   const [left, setLeft] = React.useState<readonly number[]>([0, 1, 2, 3]);
@@ -121,7 +148,10 @@ const TransferList = () => {
                   }}
                 />
               </ListItemIcon>
-              <ListItemText id={labelId} primary={`List item ${value + 1}`} />
+              <ListItemText
+                id={labelId}
+                primary={fruits.map(({ fruitName }) => fruitName)}
+              />
             </ListItem>
           );
         })}
