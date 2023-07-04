@@ -46,7 +46,7 @@ const fruits = [
 ];
 
 console.log("Fruits", fruits);
-const fruitsArray = fruits.map(({ fruitName }) => [fruitName]).join(", ");
+const [fruitsArray] = fruits.map((fruits) => fruits.fruitName);
 console.log("FruitsArray", fruitsArray);
 
 const TransferList = () => {
@@ -148,10 +148,7 @@ const TransferList = () => {
                   }}
                 />
               </ListItemIcon>
-              <ListItemText
-                id={labelId}
-                primary={fruits.map(({ fruitName }) => fruitName)}
-              />
+              <ListItemText id={labelId} primary={fruitsArray} />
             </ListItem>
           );
         })}
