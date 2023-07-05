@@ -1,189 +1,171 @@
-import * as React from "react";
+import { useState } from "react";
 import Grid from "@mui/material/Grid";
 import List from "@mui/material/List";
 import Card from "@mui/material/Card";
-import CardHeader from "@mui/material/CardHeader";
-import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
-import ListItemIcon from "@mui/material/ListItemIcon";
-import Checkbox from "@mui/material/Checkbox";
 import Button from "@mui/material/Button";
-import Divider from "@mui/material/Divider";
+import { ListItemButton } from "@mui/material";
 
-function not(a: readonly number[], b: readonly number[]) {
+function not(a: number[], b: { id: number; itemName: string }[]) {
+  return a.filter((value) => b.find((i) => i.id !== value));
+}
+
+function notSelected(a: number[], b: number[]) {
   return a.filter((value) => b.indexOf(value) === -1);
 }
 
-function intersection(a: readonly number[], b: readonly number[]) {
-  return a.filter((value) => b.indexOf(value) !== -1);
+function intersection(a: number[], b: { id: number; itemName: string }[]) {
+  return a.filter((value) => b.find((i) => i.id === value));
 }
-
-function union(a: readonly number[], b: readonly number[]) {
-  return [...a, ...not(b, a)];
-}
-
-const fruits = [
-  {
-    id: 1,
-    fruitName: "Apples",
-  },
-  {
-    id: 2,
-    fruitName: "Bananas",
-  },
-  {
-    id: 3,
-    fruitName: "Mangoes",
-  },
-  {
-    id: 4,
-    fruitName: "Watermelons",
-  },
-  {
-    id: 5,
-    fruitName: "Pineapples",
-  },
-];
-
-console.log("Fruits", fruits);
-const [fruitsArray] = fruits.map((fruits) => fruits.fruitName);
-console.log("FruitsArray", fruitsArray);
 
 const TransferList = () => {
-  const [checked, setChecked] = React.useState<readonly number[]>([]);
-  const [left, setLeft] = React.useState<readonly number[]>([0, 1, 2, 3]);
-  const [right, setRight] = React.useState<readonly number[]>([4, 5, 6, 7]);
+  const [selectedItems, setSelectedItems] = useState<number[]>([]);
+  const [fruits, setFruits] = useState<{ id: number; itemName: string }[]>([
+    {
+      id: 1,
+      itemName: "Apples",
+    },
+    {
+      id: 2,
+      itemName: "Bananas",
+    },
+    {
+      id: 3,
+      itemName: "Mangoes",
+    },
+    {
+      id: 4,
+      itemName: "Watermelons",
+    },
+    {
+      id: 5,
+      itemName: "Pineapples",
+    },
+  ]);
+  const [veggies, setVeggies] = useState<{ id: number; itemName: string }[]>([
+    {
+      id: 6,
+      itemName: "Potatoes",
+    },
+    {
+      id: 7,
+      itemName: "Onions",
+    },
+    {
+      id: 8,
+      itemName: "Carrots",
+    },
+    {
+      id: 9,
+      itemName: "Spinach",
+    },
+    {
+      id: 10,
+      itemName: "Pumpkins",
+    },
+  ]);
 
-  const leftChecked = intersection(checked, left);
-  const rightChecked = intersection(checked, right);
+  const selectedFruitsLeft = intersection(selectedItems, fruits);
+  const selectedVeggiesRight = intersection(selectedItems, veggies);
 
-  const handleToggle = (value: number) => () => {
-    const currentIndex = checked.indexOf(value);
-    const newChecked = [...checked];
+  const handleToggle = (value: { id: number; itemName: string }) => () => {
+    const currentIndex = selectedItems.indexOf(value.id);
+    const newChecked = [...selectedItems];
 
     if (currentIndex === -1) {
-      newChecked.push(value);
+      newChecked.push(value.id);
     } else {
       newChecked.splice(currentIndex, 1);
     }
-
-    setChecked(newChecked);
-  };
-
-  const numberOfChecked = (items: readonly number[]) =>
-    intersection(checked, items).length;
-
-  const handleToggleAll = (items: readonly number[]) => () => {
-    if (numberOfChecked(items) === items.length) {
-      setChecked(not(checked, items));
-    } else {
-      setChecked(union(checked, items));
-    }
+    setSelectedItems([...newChecked]);
+    console.log("newChecked", newChecked);
   };
 
   const handleCheckedRight = () => {
-    setRight(right.concat(leftChecked));
-    setLeft(not(left, leftChecked));
-    setChecked(not(checked, leftChecked));
+    const dataInclusionRight = fruits.filter((el) =>
+      selectedFruitsLeft.includes(el.id)
+    );
+
+    const dataExclusionLeft = not(selectedFruitsLeft, fruits);
+    const dataExcludedFromFruits: { id: number; itemName: string }[] =
+      dataExclusionLeft.length > 0
+        ? fruits.filter((el) => !dataExclusionLeft.includes(el.id))
+        : [];
+    setVeggies(veggies.concat([...dataInclusionRight]));
+    setFruits(dataExcludedFromFruits);
+    setSelectedItems(notSelected(selectedItems, selectedFruitsLeft));
   };
 
   const handleCheckedLeft = () => {
-    setLeft(left.concat(rightChecked));
-    setRight(not(right, rightChecked));
-    setChecked(not(checked, rightChecked));
+    const dataInclusionLeft = veggies.filter((el) =>
+      selectedVeggiesRight.includes(el.id)
+    );
+    const dataExclusionRight = not(selectedVeggiesRight, veggies);
+    const dataExcludedFromVeggies: { id: number; itemName: string }[] =
+      dataExclusionRight.length > 0
+        ? veggies.filter((el) => !dataExclusionRight.includes(el.id))
+        : [];
+
+    setFruits(fruits.concat([...dataInclusionLeft]));
+    setVeggies(dataExcludedFromVeggies);
+    setSelectedItems(notSelected(selectedItems, selectedVeggiesRight));
   };
+  const rightArrayContents = veggies.map((item) => {
+    const temp: { itemName?: string } = {};
+    temp["itemName"] = item.itemName;
+    return temp;
+  });
+  console.log("itemName", rightArrayContents);
 
-  const customList = (title: React.ReactNode, items: readonly number[]) => (
+  const customList = (items: { id: number; itemName: string }[]) => (
     <Card>
-      <CardHeader
-        sx={{ px: 2, py: 1 }}
-        avatar={
-          <Checkbox
-            onClick={handleToggleAll(items)}
-            checked={
-              numberOfChecked(items) === items.length && items.length !== 0
-            }
-            indeterminate={
-              numberOfChecked(items) !== items.length &&
-              numberOfChecked(items) !== 0
-            }
-            disabled={items.length === 0}
-            inputProps={{
-              "aria-label": "all items selected",
-            }}
-          />
-        }
-        title={title}
-        subheader={`${numberOfChecked(items)}/${items.length} selected`}
-      />
-      <Divider />
-      <List
-        sx={{
-          width: 200,
-          height: 230,
-          bgcolor: "background.paper",
-          overflow: "auto",
-        }}
-        dense
-        component="div"
-        role="list"
-      >
-        {items.map((value: number) => {
+      <List component="div" role="list">
+        {items.map((item, value) => {
           const labelId = `transfer-list-all-item-${value}-label`;
-
           return (
-            <ListItem
+            <ListItemButton
               key={value}
               role="listitem"
-              button
-              onClick={handleToggle(value)}
+              onClick={handleToggle(item)}
+              selected={selectedItems.indexOf(item.id) !== -1}
             >
-              <ListItemIcon>
-                <Checkbox
-                  checked={checked.indexOf(value) !== -1}
-                  tabIndex={-1}
-                  disableRipple
-                  inputProps={{
-                    "aria-labelledby": labelId,
-                  }}
-                />
-              </ListItemIcon>
-              <ListItemText id={labelId} primary={fruitsArray} />
-            </ListItem>
+              <ListItemText id={labelId} primary={item.itemName} />
+            </ListItemButton>
           );
         })}
       </List>
     </Card>
   );
+  console.log("Selected Items", selectedItems);
 
   return (
     <Grid container spacing={2} justifyContent="center" alignItems="center">
-      <Grid item>{customList("Choices", left)}</Grid>
+      <Grid item>{customList(fruits)}</Grid>
       <Grid item>
         <Grid container direction="column" alignItems="center">
           <Button
             sx={{ my: 0.5 }}
-            variant="outlined"
+            variant="contained"
             size="small"
             onClick={handleCheckedRight}
-            disabled={leftChecked.length === 0}
+            disabled={selectedFruitsLeft.length === 0}
             aria-label="move selected right"
           >
-            &gt;
+            Add
           </Button>
           <Button
             sx={{ my: 0.5 }}
-            variant="outlined"
+            variant="contained"
             size="small"
             onClick={handleCheckedLeft}
-            disabled={rightChecked.length === 0}
+            disabled={selectedVeggiesRight.length === 0}
             aria-label="move selected left"
           >
-            &lt;
+            Remove
           </Button>
         </Grid>
       </Grid>
-      <Grid item>{customList("Chosen", right)}</Grid>
+      <Grid item>{customList(veggies)}</Grid>
     </Grid>
   );
 };
